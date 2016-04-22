@@ -1,17 +1,15 @@
+# -*- coding: utf-8 -*-
+
 import yaml
 
-# Parsing YAML header from a blog post
-def parseYaml(file):
-    stream = open(file,"r")
+## YAML Header
+stream = open("post01","r")
+header = yaml.load(stream)
+print header
 
-    counter = 0
-    for line in stream:
-        if line == "---":
-            counter = counter+1 # Isn't there a more elegant way to do this?
-            if counter == 2:
-                break
-        header = append(header,line)
-    
-    header = yaml.load(stream)
+headeroutput = """# {0}
+*Autores: Algunos*
+"""
 
-    return header.items, body
+outfile = open("post","w")
+outfile.write(headeroutput)
